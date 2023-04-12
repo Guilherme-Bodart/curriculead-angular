@@ -1,12 +1,14 @@
 import { IRest } from './rest.interface';
 
-export class AcademicEducation implements IRest {
+export class ProfessionalExperience implements IRest {
   className = 'Experiência Profissional';
 
-  courseName: string;
-  schoolName: string;
+  responsibility: string;
+  employer: string;
+  description: string;
   startDate: Date;
   endDate: Date;
+  currentPosition: Date;
 
   constructor(data?: any) {
     if (data) this.Deserialize(data);
@@ -14,20 +16,24 @@ export class AcademicEducation implements IRest {
 
   Serialize() {
     const out = {
-      courseName: this.courseName,
-      schoolName: this.schoolName,
+      responsibility: this.responsibility,
+      employer: this.employer,
+      description: this.description,
       startDate: this.startDate,
       endDate: this.endDate,
+      currentPosition: this.currentPosition,
     };
     return out;
   }
 
   Deserialize(data: any) {
     if (data) {
-      this.courseName = data['courseName'] || '';
-      this.schoolName = data['schoolName'] || '';
+      this.responsibility = data['responsibility'] || '';
+      this.employer = data['employer'] || '';
+      this.description = data['description'] || '';
       this.startDate = data['startDate'] || new Date(2000, 1, 1);
       this.endDate = data['endDate'] || new Date(2000, 1, 1);
+      this.currentPosition = data['currentPosition'] || false;
     }
     return this;
   }

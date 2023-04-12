@@ -1,12 +1,10 @@
 import { IRest } from './rest.interface';
 
-export class AcademicEducation implements IRest {
+export class StyleCurriculum implements IRest {
   className = 'Estilo do Currículo';
 
-  courseName: string;
-  schoolName: string;
-  startDate: Date;
-  endDate: Date;
+  name: string;
+  color: string;
 
   constructor(data?: any) {
     if (data) this.Deserialize(data);
@@ -14,20 +12,16 @@ export class AcademicEducation implements IRest {
 
   Serialize() {
     const out = {
-      courseName: this.courseName,
-      schoolName: this.schoolName,
-      startDate: this.startDate,
-      endDate: this.endDate,
+      name: this.name,
+      color: this.color,
     };
     return out;
   }
 
   Deserialize(data: any) {
     if (data) {
-      this.courseName = data['courseName'] || '';
-      this.schoolName = data['schoolName'] || '';
-      this.startDate = data['startDate'] || new Date(2000, 1, 1);
-      this.endDate = data['endDate'] || new Date(2000, 1, 1);
+      this.name = data['name'] || '';
+      this.color = data['color'] || '';
     }
     return this;
   }
