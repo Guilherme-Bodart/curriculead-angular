@@ -1,7 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginPageComponent } from './login-page.component';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { LoginPageComponent } from './login-page.component';
 
 const routes: Routes = [
   {
@@ -10,7 +13,6 @@ const routes: Routes = [
   },
 ];
 
-
 @NgModule({
   declarations: [
     LoginPageComponent
@@ -18,6 +20,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    CheckboxModule,
+    InputTextModule,
+    ButtonModule,
   ]
 })
 export class LoginPageModule { }

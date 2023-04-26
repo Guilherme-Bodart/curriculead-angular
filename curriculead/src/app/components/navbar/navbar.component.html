@@ -1,10 +1,15 @@
-<div class="flex align-items-center justify-content-between h-full p-2">
+<div class="flex align-items-center justify-content-between h-full px-5">
   <div class="logo"></div>
 
   <div class="menu">
-    <ul class="list-none flex gap-3">
-      <li>INÍCIO</li>
-      <li>CRIAR CURRÍCULO</li>
-    </ul>
+    <div
+      class="menu-item"
+      (click)="onActiveItemChange(item)"
+      [ngClass]="{ active: activeItem == item }"
+      *ngFor="let item of menuItems; let i = index"
+    >
+      <i [class]="item.icon"></i>
+      <span>{{ item.label }}</span>
+    </div>
   </div>
 </div>
